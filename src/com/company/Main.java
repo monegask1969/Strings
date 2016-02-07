@@ -1,8 +1,10 @@
 package com.company;
 
+import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Locale;
 import java.util.regex.Pattern;
 import java.util.stream.Collector;
@@ -40,9 +42,12 @@ public class Main {
         } catch (ParseException e) {
             System.err.print("Error position: " + e.getErrorOffset());
         }
-        System.out.printf("iGe = %f\niUs = %f\niFr = %f", iGe,iUs,iFr);
+        System.out.printf("iGe = %f\niUs = %f\niFr = %f", iGe, iUs, iFr);
         String sUs = nfUs.format(iGe);
         String sFr = nfFr.format(iGe);
         System.out.println("\nUs" + sUs + "\nFr" + sFr);
+        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, new Locale("UA"));
+        String s = df.format(new Date());
+        System.out.println(s);
     }
 }
